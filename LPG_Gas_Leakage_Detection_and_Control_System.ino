@@ -1,15 +1,6 @@
 /* 
  * LPG Gas Leakage Detection and Control System
- * Author: Your Name
- * Date: Current Date
- * 
- * Features:
- * - MQ-6 Gas Sensor Detection
- * - Automatic Valve Control via Servo
- * - Alert Buzzer
- * - LCD Display
- * - WiFi & Bluetooth Notifications
- * - Kitchen Fan Control
+ * Author: Rudra Kumar
  */
 
 // Include necessary libraries
