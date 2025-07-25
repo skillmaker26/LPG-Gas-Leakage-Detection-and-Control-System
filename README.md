@@ -1,10 +1,7 @@
 # LPG-Gas-Leakage-Detection-and-Control-System
 
-Here's a revised 700-word introduction with a more formal, third-person perspective that avoids using "we/us/our" and maintains technical rigor:
-
 ---
 
-# **Automated LPG Gas Leakage Detection and Mitigation System**  
 *A Smart Safety Solution for Residential and Commercial Environments*
 
 ## **1. Project Significance**  
