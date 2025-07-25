@@ -1,4 +1,4 @@
-complete wiring table with Arduino pin numbers, connected components, and their functions for LPG Gas Leakage Detection and Control System .
+Complete wiring table with Arduino pin numbers, connected components, and their functions for LPG Gas Leakage Detection and Control System .
 ---
 
 ### 🔌 **1. MQ-6 Gas Sensor**
