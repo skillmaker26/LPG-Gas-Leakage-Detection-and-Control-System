@@ -17,7 +17,7 @@ Liquefied Petroleum Gas (LPG) leakage poses a critical safety hazard in domestic
 | Arduino UNO R3                    | 1        | —                  |
 | MQ-6 Gas Sensor                   | 1        | A0 or D2           |
 | Buzzer                            | 1        | D8                 |
-| 16x2 LCD (with I2C recommended)   | 1        | SDA (A4), SCL (A5) |
+| 16x2 LCD (with I2C)               | 1        | SDA (A4), SCL (A5) |
 | Servo Motor (for valve)           | 1        | D9                 |
 | DC Fan or Relay                   | 1        | D10                |
 | Bluetooth Module (HC-05)          | 1        | TX–>D2, RX–>D3     |
