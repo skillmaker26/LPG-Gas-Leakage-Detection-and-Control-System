@@ -4,10 +4,31 @@
 
 *A Smart Safety Solution for Residential and Commercial Environments*
 
-## **1. Project Significance**  
+---
+
 Liquefied Petroleum Gas (LPG) leakage poses a critical safety hazard in domestic and industrial settings worldwide. Composed primarily of propane and butane, LPG's high flammability (ignition temperature: 470°C) and rapid expansion rate (1:270 volume ratio when released) make undetected leaks potentially catastrophic. Statistical data from the National Fire Protection Association reveals that gas-related incidents account for approximately 4% of all residential fires annually, with a disproportionate 18% share of fire-related fatalities. This project addresses the urgent need for proactive gas safety systems through an integrated hardware-software solution capable of automatic hazard detection and mitigation.
 
-## **2. Technical Challenges in Gas Leak Prevention**  
+---
+
+### **Components Required**
+
+| Component                         | Quantity | Pin                |
+| --------------------------------- | -------- | ------------------ |
+| Arduino UNO R3                    | 1        | —                  |
+| MQ-6 Gas Sensor                   | 1        | A0 or D2           |
+| Buzzer                            | 1        | D8                 |
+| 16x2 LCD (with I2C recommended)   | 1        | SDA (A4), SCL (A5) |
+| Servo Motor (for valve)           | 1        | D9                 |
+| DC Fan or Relay                   | 1        | D10                |
+| Bluetooth Module (HC-05)          | 1        | TX–>D2, RX–>D3     |
+| Wi-Fi Module (ESP8266 or NodeMCU) | 1        | Via Serial         |
+| Power Supply (12V)                | 1        | —                  |
+
+
+---
+  
+
+## **1. Technical Challenges in Gas Leak Prevention**  
 Current LPG safety mechanisms exhibit three fundamental limitations:  
 1. **Reactive Nature**: Conventional odorant-based detection relies on human intervention after leak occurrence.  
 2. **Lack of Automated Countermeasures**: Over 67% of commercially available detectors provide alerts without physical leak containment.  
@@ -18,9 +39,9 @@ The proposed system overcomes these shortcomings through a multi-layered archite
 - **Electromechanical Shutoff**: Servo-actuated valve closure within 3 seconds of detection  
 - **IoT Integration**: Simultaneous local and cloud-based alerting  
 
-## **3. System Architecture Overview**  
+## **2. System Architecture Overview**  
 
-### **3.1 Sensing Subsystem**  
+### **2.1 Sensing Subsystem**  
 The MQ-6 gas sensor employs a tin dioxide (SnO₂) chemiresistive element whose conductivity varies logarithmically with hydrocarbon concentration. Key operational parameters:  
 
 | Characteristic       | Value                              |  
@@ -30,7 +51,7 @@ The MQ-6 gas sensor employs a tin dioxide (SnO₂) chemiresistive element whose 
 | Response Time        | <10s (90% step change)             |  
 | Output Configuration | Analog (0-5V) + Digital (TTL)     |  
 
-### **3.2 Control Subsystem**  
+### **2.2 Control Subsystem**  
 An Arduino UNO R3 microcontroller serves as the central processing unit, selected for its:  
 - 16MHz clock speed enabling real-time sensor polling  
 - 10-bit ADC resolution for precise gas concentration measurement  
@@ -46,7 +67,7 @@ enum SystemState {
 };  
 ```  
 
-### **3.3 Actuation Subsystem**  
+### **2.3 Actuation Subsystem**  
 Three parallel response mechanisms engage during leak events:  
 
 1. **Physical Containment**  
@@ -61,7 +82,7 @@ Three parallel response mechanisms engage during leak events:
    - 85dB piezoelectric buzzer with distinct pulse patterns  
    - 16×2 I2C LCD displays real-time gas concentration  
 
-### **3.4 Communication Subsystem**  
+### **2.4 Communication Subsystem**  
 | Interface    | Protocol  | Data Rate | Alert Method             |  
 |-------------|-----------|-----------|--------------------------|  
 | ESP8266     | WiFi      | 72Mbps    | Cloud API (ThingSpeak)   |  
@@ -78,19 +99,19 @@ The system transmits JSON-formatted alerts containing:
 }  
 ```  
 
-## **4. Safety Engineering Considerations**  
+## **3. Safety Engineering Considerations**  
 
-### **4.1 Hardware Protections**  
+### **3.1 Hardware Protections**  
 - Galvanic isolation between high/low voltage circuits  
 - Current-limited GPIO connections (220Ω series resistors)  
 - TVS diodes on all communication lines  
 
-### **4.2 Software Safeguards**  
+### **3.2 Software Safeguards**  
 - Sensor data validation through moving average filters  
 - Watchdog timer with hardware reset circuit  
 - Configurable hysteresis bands to prevent oscillation  
 
-## **5. Performance Validation**  
+## **4. Performance Validation**  
 
 | Metric                  | Test Result          | Compliance Standard |  
 |-------------------------|----------------------|---------------------|  
@@ -100,16 +121,14 @@ The system transmits JSON-formatted alerts containing:
 | False Alarm Rate        | 0.15 incidents/month | EN 14604:2005       |  
 
 
-## **6. Implementation Scenarios**  
+## **5. Implementation Scenarios**  
 1. **Residential Kitchens**: Continuous monitoring cylinders  
 2. **Commercial Kitchens**: Integration with centralized gas supply lines  
 3. **Industrial Applications**: Area monitoring in LPG storage facilities  
 
-## **7. Technological Advancements**  
+## **6. Technological Advancements**  
 Recent developments in semiconductor gas sensors and IoT connectivity have enabled cost-effective deployment of such systems, with the total component cost for this solution being under $50 in volume production. Future iterations may incorporate predictive maintenance features through machine learning analysis of sensor drift patterns.  
 
 This system represents a significant evolution in gas safety technology, transitioning from passive detection to active hazard mitigation. Its design philosophy emphasizes reliability through simplicity, with all critical safety functions being hardware-triggered independent of software operation.  
 
 --- 
-
-This version maintains technical depth while adopting a more formal academic tone suitable for research papers or technical documentation. The content is organized to flow from problem significance through technical implementation to validation data. Would you like any particular section expanded further?
